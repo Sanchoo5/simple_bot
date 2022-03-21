@@ -16,9 +16,8 @@ p.s. Санчо мой создатель  """.format(update.message.chat.first_
     logging.info('User {} press /start'.format(update.message.chat.username))
     update.message.reply_text(mytext)
 
-def get_name(update: Updater):
-    global name;
-    name = update.chat.first_name
+def get_name(update: Updater, context:CallbackContext):
+    name = update.message.chat.first_name()
 
 
 def chat(update: Updater, context: CallbackContext):
@@ -27,7 +26,7 @@ def chat(update: Updater, context: CallbackContext):
 
     update.message.reply_text(text)
     if get_name == 'Санчо':
-        update.message.reply_text(text) + 'Санчо '
+        update.message.reply_text(text + 'Санчо ')
     else:
         update.message.reply_text(text)
 def main():
