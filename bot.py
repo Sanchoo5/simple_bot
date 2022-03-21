@@ -18,7 +18,10 @@ def chat(update: Updater, context: CallbackContext):
     text = update.message.text
     logging.info(text)
 
-    update.message.reply_text(text)
+    if update.message.chat.first_name == 'Санчо':
+        update.message.reply_text(text) + 'Ты прекрасен Санчо'
+    else:
+        update.message.reply_text(text)
 
 def main():
     updtr = Updater(settings.TOKEN_TG)
