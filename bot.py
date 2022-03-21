@@ -14,14 +14,22 @@ p.s. Санчо мой создатель  """.format(update.message.chat.first_
     logging.info('User {} press /start'.format(update.message.chat.username))
     update.message.reply_text(mytext)
 
+
+def name(update: Updater):
+    update.message.chat.first_name
+
+def reply(update: Updater):
+    text = update.message.text
+    update.message.reply_text(text)
+
 def chat(update: Updater, context: CallbackContext):
     text = update.message.text
     logging.info(text)
 
-    if update.message.chat.first_name == 'Санчо':
-        update.message.reply_text(text) + 'Ты прекрасен Санчо'
+    if name == 'Санчо':
+        reply + 'Ты прекрасен Санчо'
     else:
-        update.message.reply_text(text)
+        reply()
 
 def main():
     updtr = Updater(settings.TOKEN_TG)
