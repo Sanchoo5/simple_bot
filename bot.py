@@ -11,6 +11,7 @@ def start_bot(update: Updater, context: CallbackContext):
     mytext = """Дарова {} Я только появился и буду в скором времени развиваться :) 
     
 p.s. Санчо мой создатель  """.format(update.message.chat.first_name)
+    logging.info('User {} press /start'.format(update.message.chat.username))
     update.message.reply_text(mytext)
 
 def chat(update: Updater, context: CallbackContext):
